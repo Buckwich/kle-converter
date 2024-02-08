@@ -1,3 +1,4 @@
+/**
 MIT License
 
 Copyright (c) 2013-2019 Ian Prest
@@ -19,3 +20,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+**/
+
+export class KleKeyboardMetadata {
+  author: string = '';
+  backcolor: string = '#eeeeee';
+  background: { name: string; style: string } | null = null;
+  name: string = '';
+  notes: string = '';
+  radii: string = '';
+  switchBrand: string = '';
+  switchMount: string = '';
+  switchType: string = '';
+}
