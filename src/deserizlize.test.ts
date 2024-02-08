@@ -1,3 +1,4 @@
+/* eslint-disable no-sparse-arrays */
 /**
 MIT License
 
@@ -27,22 +28,22 @@ import { KleKeyboard } from './models/keyboard';
 
 describe('deserialization', () => {
   it('should return empty keyboard on empty array', function () {
-    var input = [];
-    var result = deserialize(input);
+    const input = [];
+    const result = deserialize(input);
     expect(result).toBeInstanceOf(KleKeyboard);
     expect(result.keys).toEqual([]);
   });
 
   describe('of metadata', function () {
     it('should parse from first object if it exists', function () {
-      var input: any = [{ name: 'test' }];
-      var result = deserialize(input);
+      const input: any = [{ name: 'test' }];
+      const result = deserialize(input);
       expect(result).toBeInstanceOf(KleKeyboard);
       expect(result.meta.name).toEqual('test');
     });
 
     it('should throw an exception if found anywhere other than the start', function () {
-      var result = () => deserialize([[], { name: 'test' } as any]);
+      const result = () => deserialize([[], { name: 'test' } as any]);
       expect(result).toThrow();
     });
   });
@@ -313,7 +314,7 @@ describe('deserialization', () => {
       //    the array from the old layout to the new internal one.
 
       // prettier-ignore
-      var expected = [
+      const expected = [
             // top row   /**/ middle row /**/ bottom row  /**/   front
             ["0","8","2",/**/"6","9","7",/**/"1","10","3",/**/"4","11","5"], // a=0
             [   ,"0",   ,/**/   ,"6",   ,/**/   , "1",   ,/**/"4","11","5"], // a=1 (center horz)
@@ -326,9 +327,9 @@ describe('deserialization', () => {
             [   ,   ,   ,/**/   ,"0",   ,/**/   ,    ,   ,/**/   , "4",   ], // a=7 (center front+both)
         ];
 
-      for (var a = 0; a <= 7; ++a) {
+      for (let a = 0; a <= 7; ++a) {
         const input = [[{ a: a }, '0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11']];
-        var result = deserialize(input);
+        const result = deserialize(input);
         expect(expected[a]).toBeDefined();
         expect(result).toBeInstanceOf(KleKeyboard);
         expect(result.keys).toHaveLength(1);

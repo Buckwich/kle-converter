@@ -35,16 +35,16 @@ export function deserialize(rows: RawRow[]): KleKeyboard {
   }
 
   // Initialize with defaults
-  let current: KleKey = new KleKey();
-  let keyboard = new KleKeyboard();
-  var align = 4;
+  const current: KleKey = new KleKey();
+  const keyboard = new KleKeyboard();
+  let align = 4;
 
   rows.forEach((row, rowIndex) => {
     if (Array.isArray(row)) {
-      for (var key = 0; key < row.length; ++key) {
-        var item = row[key];
+      for (let key = 0; key < row.length; ++key) {
+        const item = row[key];
         if (typeof item === 'string') {
-          var newKey: KleKey = copy(current);
+          const newKey: KleKey = copy(current);
 
           // Calculate some generated values
           newKey.width2 = newKey.width2 === 0 ? current.width : current.width2;
@@ -53,7 +53,7 @@ export function deserialize(rows: RawRow[]): KleKeyboard {
           newKey.textSize = reorderLabelsIn(newKey.textSize, align);
 
           // Clean up the data
-          for (var i = 0; i < 12; ++i) {
+          for (let i = 0; i < 12; ++i) {
             if (!newKey.labels[i]) {
               delete newKey.textSize[i];
               delete newKey.textColor[i];
@@ -82,12 +82,12 @@ export function deserialize(rows: RawRow[]): KleKeyboard {
             current.default.textSize = item.f;
             current.textSize = [];
           }
-          if (item.f2) for (var i = 1; i < 12; ++i) current.textSize[i] = item.f2;
+          if (item.f2) for (let i = 1; i < 12; ++i) current.textSize[i] = item.f2;
           if (item.fa) current.textSize = item.fa;
           if (item.p) current.profile = item.p;
           if (item.c) current.color = item.c;
           if (item.t) {
-            var split = item.t.split('\n');
+            const split = item.t.split('\n');
             if (split[0] != '') current.default.textColor = split[0];
             current.textColor = reorderLabelsIn(split, align);
           }
@@ -116,7 +116,7 @@ export function deserialize(rows: RawRow[]): KleKeyboard {
       if (rowIndex != 0) {
         throw new DetailedError('keyboard metadata must the be first element', row);
       }
-      for (let prop in keyboard.meta) {
+      for (const prop in keyboard.meta) {
         if (row[prop]) keyboard.meta[prop as keyof KleKeyboardMetadata] = row[prop];
       }
     } else {
@@ -128,8 +128,8 @@ export function deserialize(rows: RawRow[]): KleKeyboard {
 
 // depending on the alignment flags.
 function reorderLabelsIn(labels: string | any[], align: number) {
-  var ret: Array<any> = [];
-  for (var i = 0; i < labels.length; ++i) {
+  const ret: Array<any> = [];
+  for (let i = 0; i < labels.length; ++i) {
     if (labels[i]) ret[labelMap[align][i]] = labels[i];
   }
   return ret;
@@ -138,15 +138,15 @@ function copy(o: any): any {
   if (typeof o !== 'object') {
     return o; // primitive value
   } else if (o instanceof Array) {
-    var result: any[] = [];
-    for (var i = 0; i < o.length; i++) {
+    const result: any[] = [];
+    for (let i = 0; i < o.length; i++) {
       result[i] = copy(o[i]);
     }
     return result;
   } else {
-    var oresult: any = Object.create(Object.getPrototypeOf(o));
+    const oresult: any = Object.create(Object.getPrototypeOf(o));
     new oresult.constructor();
-    for (var prop in o) {
+    for (const prop in o) {
       oresult[prop] = copy(o[prop]);
     }
     return oresult;
