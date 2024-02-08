@@ -1,3 +1,4 @@
+/**
 MIT License
 
 Copyright (c) 2013-2019 Ian Prest
@@ -19,3 +20,40 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+**/
+
+export class KleKey {
+  color: string = "#cccccc";
+  labels: string[] = [];
+  textColor: Array<string | undefined> = [];
+  textSize: Array<number | undefined> = [];
+  default: { textColor: string; textSize: number } = {
+    textColor: "#000000",
+    textSize: 3,
+  };
+  x: number = 0;
+  y: number = 0;
+  width: number = 1;
+  height: number = 1;
+  x2: number = 0;
+  y2: number = 0;
+  width2: number = 1;
+  height2: number = 1;
+  rotation_x: number = 0;
+  rotation_y: number = 0;
+  rotation_angle: number = 0;
+  decal: boolean = false;
+  ghost: boolean = false;
+  stepped: boolean = false;
+  nub: boolean = false;
+  profile: string = "";
+  /** switch mount */
+  sm: string = "";
+  /** switch brand */
+  sb: string = "";
+  /** switch type */
+  st: string = "";
+  /** secondary font height */
+  f2: any;
+  align: any;
+}
