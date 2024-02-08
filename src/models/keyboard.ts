@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 **/
 
-import { KleKey } from "./key";
-import { KleKeyboardMetadata } from "./keyboard-metadata";
+import { KleKey } from './key';
+import { KleKeyboardMetadata } from './keyboard-metadata';
 
 export class KleKeyboard {
   meta: KleKeyboardMetadata = new KleKeyboardMetadata();

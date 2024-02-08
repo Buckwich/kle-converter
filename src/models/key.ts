@@ -23,12 +23,12 @@ SOFTWARE.
 **/
 
 export class KleKey {
-  color: string = "#cccccc";
+  color: string = '#cccccc';
   labels: string[] = [];
   textColor: Array<string | undefined> = [];
   textSize: Array<number | undefined> = [];
   default: { textColor: string; textSize: number } = {
-    textColor: "#000000",
+    textColor: '#000000',
     textSize: 3,
   };
   x: number = 0;
@@ -46,13 +46,13 @@ export class KleKey {
   ghost: boolean = false;
   stepped: boolean = false;
   nub: boolean = false;
-  profile: string = "";
+  profile: string = '';
   /** switch mount */
-  sm: string = "";
+  sm: string = '';
   /** switch brand */
-  sb: string = "";
+  sb: string = '';
   /** switch type */
-  st: string = "";
+  st: string = '';
   /** secondary font height */
   f2: any;
   align: any;

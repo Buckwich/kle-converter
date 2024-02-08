@@ -23,13 +23,13 @@ SOFTWARE.
 **/
 
 export class KleKeyboardMetadata {
-  author: string = "";
-  backcolor: string = "#eeeeee";
+  author: string = '';
+  backcolor: string = '#eeeeee';
   background: { name: string; style: string } | null = null;
-  name: string = "";
-  notes: string = "";
-  radii: string = "";
-  switchBrand: string = "";
-  switchMount: string = "";
-  switchType: string = "";
+  name: string = '';
+  notes: string = '';
+  radii: string = '';
+  switchBrand: string = '';
+  switchMount: string = '';
+  switchType: string = '';
 }
