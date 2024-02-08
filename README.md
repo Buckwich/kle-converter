@@ -1,20 +1,3 @@
-# Typescript Template
+# KLE Converter
 
-This is a template for my TypeScript projects. This is very opinionated but feel free to use it as a starting point for your own projects.
-
-## Tools
-
-- Typescript
-- Jest (with ts-jest)
-- Eslint
-- Prettier
-
-## Steps taken to create this template
-
-1. Create repo with readme, gitignore (Node template) and license from github
-2. `yarn init -y`
-3. `yarn add -D typescript` & `yarn tsc --init`
-4. `yarn add -D jest ts-jest @types/jest` & `yarn ts-jest config:init`
-5. `yarn add -D prettier` & add config
-6. `yarn add -D eslint` & `yarn eslint --init`
-7. add some source and test files
+This is a npm library that helps to convert the serialized format of KLE (Keyboard Layout Editor) to a easier to use format and back. The code is based on the MIT licensed code from Ian Prest in https://github.com/ijprest/kle-serial. Originally this repo was a fork, but over time it has been modified to the point that it is no longer a fork. The `kle-serial` lib only provides deserialization and does not merge PRs that fix some issues. Files from the original repo still contain the original license.
